@@ -3,21 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Birthday Roulette</title>
+    <title>Birthday Roulette - わいわいバージョン 💪</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style2.css" />
   </head>
   <body>
+    <!-- マッチョキャラクター達 -->
+    <div class="macho macho-left" id="macho-left">
+      <div class="macho-body">
+        <div class="macho-head">💪😤</div>
+        <div class="macho-arm arm-left">💪</div>
+        <div class="macho-arm arm-right">💪</div>
+        <div class="macho-torso">🏋️</div>
+      </div>
+      <div class="macho-speech" id="speech-left">ナイスバルク！</div>
+    </div>
+    <div class="macho macho-right" id="macho-right">
+      <div class="macho-body">
+        <div class="macho-head">😤💪</div>
+        <div class="macho-arm arm-left">💪</div>
+        <div class="macho-arm arm-right">💪</div>
+        <div class="macho-torso">🏋️</div>
+      </div>
+      <div class="macho-speech" id="speech-right">パンプアップ！</div>
+    </div>
+
     <div class="container">
       <header>
-        <div class="logo-badge">BIRTHDAY</div>
+        <div class="logo-badge party">🎉 BIRTHDAY 🎉</div>
         <h1>Roulette</h1>
-        <p class="tagline">プレゼントを運命にまかせよう</p>
+        <p class="tagline">💪 マッチョと一緒にプレゼントを決めろ！ 💪</p>
         <div class="change-btn-container">
-          <p>着せ替え選択</p>
-          <button id="change-btn"><a href="index2.html">わいわいバージョン</a></button>
+          <button id="change-btn"><a href="index.html">🎀 ノーマルに戻す</a></button>
         </div>
       </header>
 
@@ -27,10 +46,8 @@
               <span>プレゼントList</span>
             </div>
             <div class="inputs" id="input-container">
-                <input type="text" id="gift1" placeholder="プレゼント1 (例: 時計)" value="プレゼント1">
-                <input type="text" id="gift2" placeholder="プレゼント2 (例: 旅行券)" value="プレゼント2">
-                <!-- <input type="text" id="gift3" placeholder="プレゼント3 (例: 美味しいケーキ)" value="美味しいケーキ">
-                <input type="text" id="gift4" placeholder="プレゼント4 (例: お手紙)" value="お手紙"> -->
+                <input type="text" id="gift1" placeholder="プレゼント1 (例: プロテイン)" value="プレゼント1">
+                <input type="text" id="gift2" placeholder="プレゼント2 (例: ダンベル)" value="プレゼント2">
             </div>
             <div class="controls">
                 <button id="add-btn" class="control-btn">＋ 追加</button>
@@ -41,30 +58,32 @@
         <section class="roulette-section">
             <div class="roulette-container">
                 <div class="pointer"></div>
-                <div class="wheel" id="wheel">
-                    <!-- ルーレットの項目はJavaScriptで生成されます -->
-                </div>
+                <div class="wheel" id="wheel"></div>
                 <button id="start-btn" class="center-btn">SPIN</button>
             </div>
         </section>
 
         <footer class="app-footer">
-          <span>tap SPIN to start</span>
+          <span>💪 tap SPIN to start 💪</span>
         </footer>
 
       <div id="result-modal" class="modal hidden">
         <div class="modal-content">
+          <div class="modal-macho-celebrate">
+            <span class="celebrate-char">💪😤🎉</span>
+            <span class="celebrate-char">🎉😤💪</span>
+          </div>
           <div class="modal-badge">RESULT</div>
           <p class="modal-sub">選ばれたプレゼントは...</p>
           <div id="result-text" class="result-text"></div>
           <div id="modal-candidates" class="modal-candidates"></div>
-          <button id="close-modal">OK!</button>
+          <button id="close-modal">OK! 💪</button>
           <button id="replay-btn" class="replay-btn">🔒 もう一回あそぶ</button>
         </div>
       </div>
     </div>
 
     <div id="confetti-container"></div>
-    <script src="script.js"></script>
+    <script src="script2.js"></script>
   </body>
 </html>

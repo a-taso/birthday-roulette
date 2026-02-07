@@ -524,6 +524,44 @@ input::placeholder {
     100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 
+/* ===== CHANGE BUTTON ===== */
+.change-btn-container {
+    margin-top: 8px;
+}
+
+.change-btn-container p {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.change-btn-container button {
+    background: var(--bg);
+    border: 2px solid var(--fg);
+    border-radius: 20px;
+    box-shadow: 2px 2px 0 var(--fg);
+    padding: 0;
+    cursor: pointer;
+    font-family: var(--font-ja);
+    transition: all 0.15s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.change-btn-container button a {
+    display: block;
+    padding: 8px 20px;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.change-btn-container button:active {
+    box-shadow: 0 0 0 var(--fg);
+    transform: translate(2px, 2px);
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 374px) {
     .roulette-section {
