@@ -535,13 +535,6 @@ input::placeholder {
     margin-top: 8px;
 }
 
-.change-btn-container p {
-    font-size: 0.75rem;
-    color: #aaa;
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
-}
-
 .change-btn-container button {
     background: var(--bg);
     border: 2px solid var(--fg);
