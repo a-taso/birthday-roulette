@@ -9,6 +9,20 @@ const closeModal = document.getElementById('close-modal');
 let isSpinning = false;
 let currentRotation = 0; // 現在の回転角度を保持
 
+// シークレットモード管理
+const inputSection = document.querySelector('.input-section');
+function enableSecret() {
+    inputSection.classList.add('secret');
+    wheel.classList.add('secret');
+}
+function revealSecret() {
+    inputSection.classList.remove('secret');
+    wheel.classList.remove('secret');
+    setupWheel(); // ラベルを正しい名前に更新
+}
+// 初期状態でシークレットモードを有効化
+enableSecret();
+
 // スタートボタンがクリックされた時の処理
 startBtn.addEventListener('click', () => {
     if (isSpinning) return; // 回転中はクリック無効
@@ -79,6 +93,9 @@ function showResult(degree, gifts) {
     // 結果テキストを設定
     resultText.textContent = gifts[index];
     
+    // 候補リストを公開
+    revealSecret();
+    
     // モーダルを表示
     resultModal.classList.remove('hidden');
     
@@ -91,6 +108,9 @@ closeModal.addEventListener('click', () => {
     resultModal.classList.add('hidden');
     // モーダルを閉じたらコンフェッティを停止/削除
     stopConfetti();
+    // シークレットモードに戻す（連続プレイ対応）
+    enableSecret();
+    setupWheel(); // ラベルを「?」に戻す
 });
 
 // コンフェッティ（紙吹雪）の処理
