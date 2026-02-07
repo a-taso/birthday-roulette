@@ -68,71 +68,42 @@ body::before {
 /* ===== MACHO CHARACTERS ===== */
 .macho {
     position: fixed;
-    bottom: 0;
+    bottom: -10px;
     z-index: 50;
     pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: transform 0.3s;
 }
 
 .macho-left {
-    left: -10px;
+    left: -20px;
 }
 
 .macho-right {
-    right: -10px;
+    right: -20px;
 }
 
-.macho-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 28px;
-    line-height: 1.1;
-    filter: drop-shadow(0 0 10px rgba(255,215,0,0.3));
+.macho-img {
+    width: 120px;
+    height: auto;
+    filter: drop-shadow(0 0 12px rgba(255,215,0,0.3));
+    animation: machoIdle 3s ease-in-out infinite;
 }
 
-.macho-head {
-    font-size: 32px;
-    animation: headBob 2s ease-in-out infinite;
+.macho-right .macho-img {
+    animation: machoIdle2 2.5s ease-in-out infinite;
 }
 
-@keyframes headBob {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+@keyframes machoIdle {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.03); }
 }
 
-.macho-arm {
-    font-size: 26px;
-}
-
-.macho-arm.arm-left {
-    transform: rotate(-30deg);
-    animation: flexLeft 1.5s ease-in-out infinite;
-}
-
-.macho-arm.arm-right {
-    transform: rotate(30deg);
-    animation: flexRight 1.5s ease-in-out infinite 0.3s;
-}
-
-@keyframes flexLeft {
-    0%, 100% { transform: rotate(-30deg) scale(1); }
-    50% { transform: rotate(-50deg) scale(1.2); }
-}
-
-@keyframes flexRight {
-    0%, 100% { transform: rotate(30deg) scale(1); }
-    50% { transform: rotate(50deg) scale(1.2); }
-}
-
-.macho-torso {
-    font-size: 36px;
-    animation: torsoFlex 3s ease-in-out infinite;
-}
-
-@keyframes torsoFlex {
-    0%, 100% { transform: scaleX(1); }
-    50% { transform: scaleX(1.1); }
+@keyframes machoIdle2 {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-6px) scale(1.02); }
 }
 
 .macho-speech {
@@ -140,79 +111,87 @@ body::before {
     color: var(--bg);
     font-weight: 900;
     font-size: 11px;
-    padding: 6px 12px;
-    border-radius: 12px;
+    padding: 6px 14px;
+    border-radius: 14px;
     position: relative;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     white-space: nowrap;
     animation: speechPop 4s ease-in-out infinite;
-    box-shadow: 0 2px 8px rgba(255,215,0,0.4);
+    box-shadow: 0 2px 10px rgba(255,215,0,0.5);
+    border: 2px solid rgba(0,0,0,0.15);
 }
 
 .macho-speech::after {
     content: '';
     position: absolute;
-    bottom: -6px;
+    bottom: -7px;
     left: 50%;
     transform: translateX(-50%);
     width: 0;
     height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid var(--gold);
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 7px solid var(--gold);
 }
 
 @keyframes speechPop {
-    0%, 80%, 100% { opacity: 1; transform: scale(1); }
+    0%, 75%, 100% { opacity: 1; transform: scale(1); }
+    85% { opacity: 0; transform: scale(0.8); }
     90% { opacity: 0; transform: scale(0.8); }
+    95% { opacity: 1; transform: scale(1.05); }
 }
 
 /* Macho excited state during spin */
-.macho.excited .macho-head {
-    animation: headBobFast 0.3s ease-in-out infinite;
+.macho.excited .macho-img {
+    animation: machoExcited 0.3s ease-in-out infinite;
 }
 
-.macho.excited .macho-arm.arm-left {
-    animation: flexLeftFast 0.4s ease-in-out infinite;
+.macho.excited .macho-speech {
+    animation: speechShake 0.4s ease-in-out infinite;
+    background: var(--accent);
+    color: #fff;
+    box-shadow: 0 2px 15px rgba(255,62,108,0.6);
 }
 
-.macho.excited .macho-arm.arm-right {
-    animation: flexRightFast 0.4s ease-in-out infinite 0.1s;
+.macho.excited .macho-speech::after {
+    border-top-color: var(--accent);
 }
 
-.macho.excited .macho-torso {
-    animation: torsoFlexFast 0.5s ease-in-out infinite;
+@keyframes machoExcited {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1.05); }
+    25% { transform: translateY(-10px) rotate(-5deg) scale(1.1); }
+    75% { transform: translateY(-10px) rotate(5deg) scale(1.1); }
 }
 
-@keyframes headBobFast {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-8px) rotate(-5deg); }
-    75% { transform: translateY(-8px) rotate(5deg); }
-}
-
-@keyframes flexLeftFast {
-    0%, 100% { transform: rotate(-30deg) scale(1); }
-    50% { transform: rotate(-60deg) scale(1.4); }
-}
-
-@keyframes flexRightFast {
-    0%, 100% { transform: rotate(30deg) scale(1); }
-    50% { transform: rotate(60deg) scale(1.4); }
-}
-
-@keyframes torsoFlexFast {
-    0%, 100% { transform: scaleX(1) scaleY(1); }
-    50% { transform: scaleX(1.15) scaleY(0.95); }
+@keyframes speechShake {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(-3deg); }
+    75% { transform: scale(1.1) rotate(3deg); }
 }
 
 /* Macho celebrate state */
-.macho.celebrate {
+.macho.celebrate .macho-img {
     animation: machoJump 0.5s ease-in-out infinite;
 }
 
+.macho.celebrate .macho-speech {
+    animation: speechCelebrate 0.6s ease-in-out infinite;
+    background: linear-gradient(135deg, var(--gold), var(--accent2));
+    box-shadow: 0 2px 15px rgba(255,215,0,0.6);
+}
+
+.macho.celebrate .macho-speech::after {
+    border-top-color: var(--accent2);
+}
+
 @keyframes machoJump {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-25px) scale(1.15); }
+}
+
+@keyframes speechCelebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15) rotate(2deg); }
 }
 
 /* ===== CONFETTI ===== */
@@ -649,21 +628,24 @@ input::placeholder {
 .modal-macho-celebrate {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     margin-bottom: 12px;
 }
 
-.celebrate-char {
-    font-size: 28px;
+.celebrate-img {
+    width: 70px;
+    height: auto;
     animation: celebrateBounce 0.6s ease-in-out infinite alternate;
+    /* filter: drop-shadow(0 0 8px rgba(255,215,0,0.4)); */
 }
 
-.celebrate-char:last-child {
+.celebrate-img:last-child {
     animation-delay: 0.3s;
 }
 
 @keyframes celebrateBounce {
-    0% { transform: translateY(0) scale(1); }
-    100% { transform: translateY(-8px) scale(1.1); }
+    0% { transform: translateY(0) scale(1) rotate(-3deg); }
+    100% { transform: translateY(-10px) scale(1.1) rotate(3deg); }
 }
 
 .modal-badge {
@@ -792,9 +774,9 @@ input::placeholder {
     }
     h1 { font-size: 2.6rem; }
     .label { font-size: 12px; }
-    .macho-body { font-size: 22px; }
-    .macho-head { font-size: 26px; }
-    .macho-torso { font-size: 30px; }
+    .macho-img { width: 90px; }
+    .macho-speech { font-size: 10px; padding: 4px 10px; }
+    .celebrate-img { width: 55px; }
 }
 
 @media (min-width: 431px) {
@@ -802,4 +784,7 @@ input::placeholder {
         display: flex;
         justify-content: center;
     }
+    .macho-img { width: 150px; }
+    .macho-speech { font-size: 13px; }
+    .celebrate-img { width: 80px; }
 }
