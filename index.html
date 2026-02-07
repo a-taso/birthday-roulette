@@ -2,22 +2,26 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Birthday Roulette</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
       <header>
-        <h1>🎂 Birthday Roulette 🎉</h1>
-        <p>素敵なプレゼントをルーレットで決めよう！</p>
+        <div class="logo-badge">BIRTHDAY</div>
+        <h1>Roulette</h1>
+        <p class="tagline">プレゼント、運命にまかせよう</p>
       </header>
 
         <section class="input-section">
-            <h2>プレゼント候補を入れてね</h2>
+            <div class="section-label">
+              <span class="label-icon">✎</span>
+              <span>候補リスト</span>
+            </div>
             <div class="inputs" id="input-container">
                 <input type="text" id="gift1" placeholder="プレゼント1 (例: 時計)" value="時計">
                 <input type="text" id="gift2" placeholder="プレゼント2 (例: 旅行券)" value="旅行券">
@@ -26,9 +30,8 @@
             </div>
             <div class="controls">
                 <button id="add-btn" class="control-btn">＋ 追加</button>
-                <button id="remove-btn" class="control-btn">－ 削除</button>
+                <button id="remove-btn" class="control-btn remove">－ 削除</button>
             </div>
-            <!-- Start button moved to roulette container -->
         </section>
 
         <section class="roulette-section">
@@ -37,16 +40,20 @@
                 <div class="wheel" id="wheel">
                     <!-- ルーレットの項目はJavaScriptで生成されます -->
                 </div>
-                <button id="start-btn" class="center-btn">PLAY</button>
+                <button id="start-btn" class="center-btn">SPIN</button>
             </div>
         </section>
 
+        <footer class="app-footer">
+          <span>tap SPIN to start</span>
+        </footer>
+
       <div id="result-modal" class="modal hidden">
         <div class="modal-content">
-          <h2>おめでとう！</h2>
-          <p>選ばれたプレゼントは...</p>
+          <div class="modal-badge">RESULT</div>
+          <p class="modal-sub">選ばれたプレゼントは...</p>
           <div id="result-text" class="result-text"></div>
-          <button id="close-modal">閉じる</button>
+          <button id="close-modal">OK!</button>
         </div>
       </div>
     </div>

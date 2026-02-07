@@ -96,7 +96,7 @@ closeModal.addEventListener('click', () => {
 // コンフェッティ（紙吹雪）の処理
 function startConfetti() {
     const container = document.getElementById('confetti-container');
-    const colors = ['#00C3E3', '#FFFFFF', '#FF6B6B', '#F0F0F0', '#00A8C6'];
+    const colors = ['#FF6B35', '#E84855', '#2EC4B6', '#9B5DE5', '#FEE440', '#1A1A1A'];
     
     // 50個の紙吹雪を生成
     for (let i = 0; i < 50; i++) {
@@ -185,14 +185,14 @@ function setupWheel() {
 
     // 色の生成
     const colors = [
-        '#FFD1DC', // Light Pink
-        '#E0F7FA', // Light Cyan
-        '#FFFACD', // Lemon Chiffon
-        '#E6E6FA', // Lavender
-        '#FFCCBC', // Light Orange
-        '#C8E6C9', // Light Green
-        '#F8BBD0', // Pink
-        '#B3E5FC'  // Light Blue
+        '#FFD6C5', // Soft Orange
+        '#C5F0ED', // Soft Mint
+        '#FEE440', // Lemon
+        '#E2D4F0', // Soft Violet
+        '#FFB8C0', // Soft Red
+        '#D4F0C5', // Soft Green
+        '#FFEAB6', // Soft Yellow
+        '#C5D8F0'  // Soft Blue
     ];
 
     // グラデーションの作成
