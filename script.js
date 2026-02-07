@@ -4,6 +4,8 @@ const wheel = document.getElementById('wheel');
 const resultModal = document.getElementById('result-modal');
 const resultText = document.getElementById('result-text');
 const closeModal = document.getElementById('close-modal');
+const modalCandidates = document.getElementById('modal-candidates');
+const replayBtn = document.getElementById('replay-btn');
 
 // ルーレットの状態管理
 let isSpinning = false;
@@ -96,6 +98,17 @@ function showResult(degree, gifts) {
     // 候補リストを公開
     revealSecret();
     
+    // モーダル内に全候補チップを表示
+    modalCandidates.innerHTML = '';
+    gifts.forEach((gift, i) => {
+        const chip = document.createElement('span');
+        chip.classList.add('candidate-chip');
+        if (i === index) chip.classList.add('winner');
+        chip.textContent = gift;
+        chip.style.animationDelay = `${i * 0.1}s`;
+        modalCandidates.appendChild(chip);
+    });
+    
     // モーダルを表示
     resultModal.classList.remove('hidden');
     
@@ -103,14 +116,19 @@ function showResult(degree, gifts) {
     startConfetti();
 }
 
-// モーダルを閉じるボタンの処理
+// モーダルを閉じるボタンの処理（公開状態を維持）
 closeModal.addEventListener('click', () => {
     resultModal.classList.add('hidden');
     // モーダルを閉じたらコンフェッティを停止/削除
     stopConfetti();
-    // シークレットモードに戻す（連続プレイ対応）
+});
+
+// 「もう一回あそぶ」ボタンでシークレットモードに戻す
+replayBtn.addEventListener('click', () => {
+    resultModal.classList.add('hidden');
+    stopConfetti();
     enableSecret();
-    setupWheel(); // ラベルを「?」に戻す
+    setupWheel();
 });
 
 // コンフェッティ（紙吹雪）の処理
