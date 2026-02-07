@@ -265,14 +265,14 @@ function setupWheel() {
 
     // パーティーカラー
     const colors = [
-        '#FFD6C5', // Soft Orange
-        '#C5F0ED', // Soft Mint
-        '#FEE440', // Lemon
-        '#E2D4F0', // Soft Violet
-        '#FFB8C0', // Soft Red
-        '#D4F0C5', // Soft Green
-        '#FFEAB6', // Soft Yellow
-        '#C5D8F0'  // Soft Blue
+        '#FFB08A', // Orange
+        '#7DE8DF', // Mint
+        '#FDD835', // Lemon
+        '#C9A8F0', // Violet
+        '#FF8A98', // Red
+        '#A0E07A', // Green
+        '#FFD56B', // Yellow
+        '#8AB8F0'  // Blue
     ];
 
     let gradientStr = 'conic-gradient(';
