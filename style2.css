@@ -328,12 +328,18 @@ h1 {
 .section-label {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
     margin-bottom: 14px;
     color: var(--gold);
+}
+
+.section-label span:last-child {
+    text-align: center;
+    font-size: 1rem;
 }
 
 .label-icon {
